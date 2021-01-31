@@ -354,8 +354,16 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
   # [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
   # cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
-  sed -i 's/sc\.ftqq\.com/mp.for8.cn/g' ${JD_DIR}/scripts/sendNotify.js
-  sed -i 's/desp +=.*$//g' ${JD_DIR}/scripts/sendNotify.js
+fi
+
+## 调用用户自定义的diy.sh
+if [ "${EnableExtraShell}" = "true" ]; then
+  if [ -f ${FileDiy} ]
+  then
+    . ${FileDiy}
+  else
+    echo -e "${FileDiy} 文件不存在，跳过执行DIY脚本...\n"
+  fi
 fi
 
 ## 执行各函数
