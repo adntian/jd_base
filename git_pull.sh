@@ -15,6 +15,7 @@ Scripts2Dir=${ShellDir}/scripts2
 ConfigDir=${ShellDir}/config
 FileConf=${ConfigDir}/config.sh
 FileDiy=${ConfigDir}/diy.sh
+FileInit=${ConfigDir}/init.sh
 FileConfSample=${ShellDir}/sample/config.sh.sample
 ListCron=${ConfigDir}/crontab.list
 ListCronLxk=${ScriptsDir}/docker/crontab_list.sh
@@ -356,13 +357,13 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   # cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
 fi
 
-## 调用用户自定义的diy.sh
+## 调用用户自定义的init.sh
 if [ "${EnableExtraShell}" = "true" ]; then
-  if [ -f ${FileDiy} ]
+  if [ -f ${FileInit} ]
   then
-    . ${FileDiy}
+    . ${FileInit}
   else
-    echo -e "${FileDiy} 文件不存在，跳过执行DIY脚本...\n"
+    echo -e "${FileInit} 文件不存在，跳过执行INIT脚本...\n"
   fi
 fi
 
