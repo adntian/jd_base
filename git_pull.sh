@@ -30,7 +30,7 @@ ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
-Scripts2URL=https://github.com/shylocks/Loon
+Scripts2URL=https://github.com/adntian/Loon
 
 if [[ ${WhichDep} == *github* ]]; then
   ScriptsURL=https://gitee.com/lxk0301/jd_scripts
@@ -353,8 +353,8 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   echo -e "--------------------------------------------------------------\n"
   [ -f ${ScriptsDir}/package.json ] && PackageListOld=$(cat ${ScriptsDir}/package.json)
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
-  # [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
-  # cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
+  [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
+  cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
 fi
 
 ## 调用用户自定义的init.sh
