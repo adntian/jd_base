@@ -78,7 +78,7 @@ function Git_PullScripts {
 ## 克隆scripts2
 function Git_CloneScripts2 {
   echo -e "克隆shylocks脚本，原地址：${Scripts2URL}\n"
-  git clone -b main ${Scripts2URL} ${Scripts2Dir}
+  git clone -b master ${Scripts2URL} ${Scripts2Dir}
   ExitStatusScripts2=$?
   echo
 }
