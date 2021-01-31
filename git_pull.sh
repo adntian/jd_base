@@ -15,7 +15,7 @@ Scripts2Dir=${ShellDir}/scripts2
 ConfigDir=${ShellDir}/config
 FileConf=${ConfigDir}/config.sh
 FileDiy=${ConfigDir}/diy.sh
-FileInit=${ConfigDir}/init.sh
+FileInitNotify=${ConfigDir}/initNotify.sh
 FileConfSample=${ShellDir}/sample/config.sh.sample
 ListCron=${ConfigDir}/crontab.list
 ListCronLxk=${ScriptsDir}/docker/crontab_list.sh
@@ -156,8 +156,21 @@ function Diff_Cron {
   fi
 }
 
+## 调用用户自定义的initNotify.sh
+function initNotify {
+  if [ "${EnableExtraShell}" = "true" ]; then
+    if [ -f ${FileInitNotify} ]
+    then
+      . ${FileInitNotify}
+    else
+      echo -e "${FileInitNotify} 文件不存在，跳过执行INIT脚本...\n"
+    fi
+  fi
+}
+
 ## 发送删除失效定时任务的消息
 function Notify_DropTask {
+  initNotify
   cd ${ShellDir}
   node update.js
   [ -f ${ContentDropTask} ] && rm -f ${ContentDropTask}
@@ -165,6 +178,7 @@ function Notify_DropTask {
 
 ## 发送新的定时任务消息
 function Notify_NewTask {
+  initNotify
   cd ${ShellDir}
   node update.js
   [ -f ${ContentNewTask} ] && rm -f ${ContentNewTask}
@@ -172,6 +186,7 @@ function Notify_NewTask {
 
 ## 检测配置文件版本
 function Notify_Version {
+  initNotify
   [ -f "${SendCount}" ] && [[ $(cat ${SendCount}) != ${VerConfSample} ]] && rm -f ${SendCount}
   UpdateDate=$(grep " Date: " ${FileConfSample} | awk -F ": " '{print $2}')
   UpdateContent=$(grep " Update Content: " ${FileConfSample} | awk -F ": " '{print $2}')
@@ -355,16 +370,6 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
   [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
   cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
-fi
-
-## 调用用户自定义的init.sh
-if [ "${EnableExtraShell}" = "true" ]; then
-  if [ -f ${FileInit} ]
-  then
-    . ${FileInit}
-  else
-    echo -e "${FileInit} 文件不存在，跳过执行INIT脚本...\n"
-  fi
 fi
 
 ## 执行各函数
