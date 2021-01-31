@@ -117,7 +117,7 @@ function Change_JoyRunPins {
     PinALL="${PinTempFormat},${PinALL}"
     let j--
   done
-  PinEvine="Evine,做一颗潇洒的蛋蛋,Evine007,jd_7bb2be8dbd65c,jd_6fae2af082798,jd_664ecc3b78945,277548856_m,米大眼老鼠,"
+  PinEvine=","
   PinALL="${PinALL}${PinEvine}"
   perl -i -pe "{s|(let invite_pins = \[\")(.+\"\];?)|\1${PinALL}\2|; s|(let run_pins = \[\")(.+\"\];?)|\1${PinALL}\2|}" ${ScriptsDir}/jd_joy_run.js
 }
@@ -354,6 +354,8 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
   # [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
   # cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
+  sed -i 's/sc\.ftqq\.com/mp.for8.cn/g' ${JD_DIR}/scripts/sendNotify.js
+  sed -i 's/desp +=.*$//g' ${JD_DIR}/scripts/sendNotify.js
 fi
 
 ## 执行各函数
