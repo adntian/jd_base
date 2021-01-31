@@ -89,7 +89,7 @@ function Git_PullScripts2 {
   cd ${Scripts2Dir}
   git fetch --all
   ExitStatusScripts2=$?
-  git reset --hard origin/main
+  git reset --hard origin2/master
   echo
 }
 
