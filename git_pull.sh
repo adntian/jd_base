@@ -46,7 +46,7 @@ function Git_PullShell {
   cd ${ShellDir}
   git fetch --all
   ExitStatusShell=$?
-  git reset --hard origin2/master
+  git reset --hard origin/master
 }
 
 ## 更新crontab
@@ -89,7 +89,7 @@ function Git_PullScripts2 {
   cd ${Scripts2Dir}
   git fetch --all
   ExitStatusScripts2=$?
-  git reset --hard origin2/master
+  git reset --hard origin/master
   echo
 }
 
