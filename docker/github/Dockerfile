@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 LABEL maintainer="JDT <china2008tian@126.com>"
-ARG JD_BASE_URL=https://github.com/adntian/jd-base
+ARG JD_BASE_URL=https://github.com/adntian/jd_base
 ARG JD_BASE_BRANCH=master
 ARG JD_SCRIPTS_URL=https://gitee.com/lxk0301/jd_scripts
 ARG JD_SCRIPTS_BRANCH=master
