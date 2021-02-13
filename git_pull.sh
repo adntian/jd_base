@@ -69,9 +69,9 @@ function Git_CloneScripts {
 function Git_PullScripts {
   echo -e "更新LXK9301脚本，原地址：${ScriptsURL}\n"
   cd ${ScriptsDir}
+  git reset --hard
   git fetch --all
   ExitStatusScripts=$?
-  git reset --hard
   echo
 }
 
@@ -87,9 +87,9 @@ function Git_CloneScripts2 {
 function Git_PullScripts2 {
   echo -e "更新shylocks脚本，原地址：${Scripts2URL}\n"
   cd ${Scripts2Dir}
+  git reset --hard
   git fetch --all
   ExitStatusScripts2=$?
-  git reset --hard origin/master
   echo
 }
 
