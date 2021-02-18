@@ -146,6 +146,8 @@ ForOtherFruit5=""
 ForOtherFruit6=""
 
 
+
+
 ################################## 定义东东萌宠互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
 MyPet1=""
@@ -391,6 +393,17 @@ ForOtherNianPk3=""
 ForOtherNianPk4=""
 ForOtherNianPk5=""
 ForOtherNianPk6=""
+
+################################## 定义京东国际环球挑战赛互助（选填） ##################################
+## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
+## 仅2021年2月22日前有效
+MyGlobal1=""
+MyGlobal2=""
+MyGlobal3=""
+
+ForOtherGlobal1=""
+ForOtherGlobal2=""
+ForOtherGlobal3=""
 
 
 ################################## 定义神仙书院活动互助（选填） ##################################
