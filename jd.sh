@@ -105,6 +105,7 @@ function Combin_All {
   export BOOKSHOP_SHARECODES=$(Combin_Sub ForOtherBookShop)
   export JD_CASH_SHARECODES=$(Combin_Sub ForOtherCash "IRs1beywZvQ@eU9YaO27Yvkg8WuAzCJA1w" "IRs1beywZvQ@Ihs2a-m0ZP8h9XPTynIX0Y0")
   export JDNIAN_SHARECODES=$(Combin_Sub ForOtherNian)
+  export JDGLOBAL_SHARECODES=$(Combin_Sub ForOtherGLOBAL "Mk1VWHVvQWkzN005RS8xRHJCVWQ5V0hpclpleFpGQjhxazBkWHNIK21Lcz0=@L2ZYVjU3QWFNNlV6Si80RGk1RS9vbnMyU1oyby9KUWFYUDlVTWhNOC9zOD0=")
   if [[ $(date -u "+%H") == 12 ]] || [[ $(date -u "+%H") == 13 ]]; then
     export JDNIANPK_SHARECODES=$(Combin_Sub ForOtherNianPk)
   else
