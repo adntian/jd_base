@@ -40,6 +40,8 @@ else
   ShellURL=https://gitee.com/evine/jd-base
 fi
 
+ScriptsURL=https://gitee.com/jk9527/jd_scripts
+
 ## 更新shell脚本
 function Git_PullShell {
   echo -e "更新shell脚本，原地址：${ShellURL}\n"
