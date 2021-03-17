@@ -47,7 +47,7 @@ function Git_PullShell {
   echo -e "更新shell脚本，原地址：${ShellURL}\n"
   cd ${ShellDir}
   git fetch --all
-  git pull
+  # git pull
   ExitStatusShell=$?
   git reset --hard origin/master
 }
@@ -74,7 +74,7 @@ function Git_PullScripts {
   cd ${ScriptsDir}
   git reset --hard
   git fetch --all
-  git pull
+  # git pull
   ExitStatusScripts=$?
   echo
 }
@@ -93,7 +93,7 @@ function Git_PullScripts2 {
   cd ${Scripts2Dir}
   git reset --hard
   git fetch --all
-  git pull
+  # git pull
   ExitStatusScripts2=$?
   echo
 }
